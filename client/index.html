@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body ng-app="myapp">
 Welcome Mukesh we are learning Mean stack
 
+<div ng-controller="ctrl2">
+
+    <input type="text" placeholder="username" ng-model="name">
+    <input type="password" placeholder="password" ng-model="pass">
+    <input type="password" placeholder="confirmpass" ng-model="confirmpass">
+    <button ng-click="signUp()">SignUp</button>
 
 
+</div>
+
+
+<script src="angular/angular.js"></script>
+<script src="app.js"></script>
+<script src="controller1.js"></script>
+<script src="service1.js"></script>
 
 </body>
 </html>
