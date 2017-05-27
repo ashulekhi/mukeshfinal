@@ -2,7 +2,26 @@
  * Created by ashu_dev on 25/05/17.
  */
 var express = require('express');
+var mongoose = require('mongoose');
+// var mongodb = require('mongodb');
+var userController = require('./user/user.controller')
 var app = express();
+
+/*var mongoClient = mongodb.connect('mongodb://127.0.0.1:27017/mukeshdatabase' , function(err,res){
+    if(err){
+
+        console.log('err in  connected' ,err);
+    }
+    else
+        console.log('connected')
+});*/
+
+// exports.mongoClient;
+
+
+mongoose.connect('mongodb://127.0.0.1:27017/mukeshdatabase',function(err,res){
+    console.log('mongoose connected');
+})
 
 
 app.use(express.static(__dirname + '/client'));
@@ -19,11 +38,7 @@ app.get('/getData' , function(req,res){
     res.send('Hi get data');
 });
 
-app.post('/signUp' , function(req,res){
-    console.log('query ' , req.query);
-    var user = req.query;
-    res.send('Error');
-})
+app.post('/signUp' , userController.createUser)
 
 app.listen('3000' , function(){
     console.log('server started');
